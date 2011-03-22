@@ -28,6 +28,13 @@ module ShowMeTheCookies
     announce current_driver_adapter.show_me_the_cookies if @announce
   end
 
+  def set_cookie(name, value, opts={})
+    announce current_driver_adapter.show_me_the_cookies if @announce
+    current_driver_adapter.set_cookie(name, value, opts)
+    announce "Set cookie: #{name}" if @announce
+    announce current_driver_adapter.show_me_the_cookies if @announce    
+  end
+  
 private
   @@session_cookie_name = nil
 

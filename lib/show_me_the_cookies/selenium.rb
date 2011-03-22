@@ -11,4 +11,9 @@ class ShowMeTheCookies::Selenium
   def delete_cookie(cookie_name)
     @browser.manage.delete_cookie(cookie_name)
   end
+  
+  def set_cookie(name, value, opts={})
+    @browser.manage.add_cookie(opts.merge({:name=>name, :value=>value}))
+  end
+  
 end
